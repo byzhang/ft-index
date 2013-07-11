@@ -4621,7 +4621,7 @@ static bool bn_needs_ancestors_messages(
 {
     BASEMENTNODE bn = BLB(node, childnum);
     struct pivot_bounds curr_bounds = next_pivot_keys(node, childnum, bounds);
-    bool needs_ancestors_messages;
+    bool needs_ancestors_messages = false;
     for (ANCESTORS curr_ancestors = ancestors; curr_ancestors; curr_ancestors = curr_ancestors->next) {
         if (curr_ancestors->node->max_msn_applied_to_node_on_disk.msn > bn->max_msn_applied.msn) {
             paranoid_invariant(BP_STATE(curr_ancestors->node, curr_ancestors->childnum) == PT_AVAIL);
