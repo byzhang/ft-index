@@ -636,7 +636,6 @@ log_put_multiple(DB_TXN *txn, DB *src_db, const DBT *src_key, const DBT *src_val
 
 static int
 do_put_multiple(DB_TXN *txn, uint32_t num_dbs, DB *db_array[], DBT_ARRAY keys[], DBT_ARRAY vals[], DB *src_db, const DBT *src_key, bool indexer_shortcut) {
-    int r = 0;
     TOKUTXN ttxn = db_txn_struct_i(txn)->tokutxn;
     for (uint32_t which_db = 0; which_db < num_dbs; which_db++) {
         DB *db = db_array[which_db];
